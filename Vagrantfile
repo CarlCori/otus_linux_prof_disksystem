@@ -53,6 +53,7 @@ Vagrant.configure("2") do |config|
 
           box.vm.provider :virtualbox do |vb|
             	  vb.customize ["modifyvm", :id, "--memory", "1024"]
+                  #vb.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", "1", "--device", "0", "--type", "dvddrive", "--medium", "/tmp/vbox/VBoxGuestAdditions.iso"]
                   needsController = false
 		  boxconfig[:disks].each do |dname, dconf|
 			  unless File.exist?(dconf[:dfile])
